@@ -1,5 +1,6 @@
 package com.example.esjumboapp
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.esjumboapp.Data.OrderUIState
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -38,5 +39,13 @@ class OrderViewModel : ViewModel() {
         val kalkulasHarga = jumlah * HARGA_PER_CUP
 
         return NumberFormat.getNumberInstance().format(kalkulasHarga)
+    }
+
+    fun setContact(listData: MutableList<String>){
+        _stateui.value = OrderUIState(
+            nama = listData[0],
+            alamat = listData[1],
+            noTlp = listData[2],
+        )
     }
 }
