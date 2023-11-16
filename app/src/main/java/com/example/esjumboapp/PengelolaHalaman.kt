@@ -30,7 +30,8 @@ import com.example.esjumboapp.Data.SumberData.flavors
 enum class PengelolaHalaman {
     Home,
     Rasa,
-    Summary
+    Summary,
+    CustomerDetails,
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -86,10 +87,10 @@ fun EsTelerApp(
                 )
             }
 
-            composable(route = PengelolaHalaman.CustomDetailsScreen.name) {
+            composable(route = PengelolaHalaman.CustomerDetails.name) {
                 CustomDetailsScreen(
                     onConfirmButtonClicked = { nama, noTelp, alamat ->
-                        viewModel.setCustomDetailsScreen(nama, noTelp, alamat)
+                        viewModel.setCustomerDetails(nama, noTelp, alamat)
                         navController.navigate(PengelolaHalaman.Rasa.name)
                     },
                     onCancelButtonClicked = {

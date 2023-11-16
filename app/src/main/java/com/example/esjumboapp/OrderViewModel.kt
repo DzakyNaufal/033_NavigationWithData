@@ -43,17 +43,17 @@ class OrderViewModel : ViewModel() {
 
     fun setCustomerDetails(nama: String,nomor: String, alamat: String){
         _stateui.update { stateSaatIni -> stateSaatIni.copy(
-            nama = nama,
-            noTlp = nomor,
+            namaPelanggan = nama,
+            nomorTelepon = nomor,
             alamat = alamat,
         ) }
     }
 
     fun setContact(listData: MutableList<String>){
         _stateui.value = OrderUIState(
-            nama = listData[0],
+            namaPelanggan = listData[0],
             alamat = listData[1],
-            noTlp = listData[2],
+            nomorTelepon = listData[2],
         )
     }
 }

@@ -39,7 +39,6 @@ fun HalamanDua (
         Pair("quantity", orderUIState.jumlah),
         Pair("flavor", orderUIState.rasa),
 
-
         )
     Column (
         modifier = Modifier,
