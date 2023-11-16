@@ -59,6 +59,7 @@ fun EsTelerAppBar(
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EsTelerApp(
     viewModel: OrderViewModel = viewModel(),
@@ -84,6 +85,19 @@ fun EsTelerApp(
                     }
                 )
             }
+
+            composable(route = PengelolaHalaman.CustomDetailsScreen.name) {
+                CustomDetailsScreen(
+                    onConfirmButtonClicked = { nama, noTelp, alamat ->
+                        viewModel.setCustomDetailsScreen(nama, noTelp, alamat)
+                        navController.navigate(PengelolaHalaman.Rasa.name)
+                    },
+                    onCancelButtonClicked = {
+                        navController.navigate(PengelolaHalaman.Home.name)
+                    },
+                )
+            }
+
             composable(route = PengelolaHalaman.Rasa.name){
                 val context = LocalContext.current
                 HalamanSatu(
